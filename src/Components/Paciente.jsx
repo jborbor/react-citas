@@ -1,35 +1,48 @@
 import React from "react";
 
-const Paciente = () => {
+const Paciente = ({ paciente }) => {
+  const { nombre, propietario, email, fecha, sintomas } = paciente;
+
   return (
-    <div className="m-3 bg-white shadow-md px-5 py-10 rounded-xl">
+    <div className="mx-5 my-5 bg-white shadow-md px-5 py-10 rounded-xl">
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        nombre: <span className="font-normal normal-case">Hook</span>
+        nombre: <span className="font-normal normal-case">{nombre}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        propietario: <span className="font-normal normal-case">Juan</span>
+        propietario:{" "}
+        <span className="font-normal normal-case">{propietario}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        Email:{" "}
-        <span className="font-normal normal-case">jborbor@gmail.com</span>
+        Email: <span className="font-normal normal-case">{email}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        fecha alta:{" "}
-        <span className="font-normal normal-case">10 Diciembre de 2022</span>
+        fecha alta: <span className="font-normal normal-case">{fecha}</span>
       </p>
 
       <p className="font-bold mb-3 text-gray-700 uppercase">
-        Sintomas:{" "}
-        <span className="font-normal normal-case">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio sequi
-          maxime ea in recusandae vel rem voluptates modi natus animi magnam
-          aperiam omnis obcaecati, eos nam veritatis maiores, odio
-          reprehenderit.
-        </span>
+        Sintomas: <span className="font-normal normal-case">{sintomas}</span>
       </p>
+
+      <div className="flex justify-between">
+        <button
+          type="button"
+          className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 
+          text-white font-bold uppercase rounded-lg active:bg-indigo-800"
+        >
+          Editar
+        </button>
+
+        <button
+          type="button"
+          className="py-2 px-10 bg-red-600 hover:bg-red-700 
+          text-white font-bold uppercase rounded-lg active:bg-red-800"
+        >
+          Eliminar
+        </button>
+      </div>
     </div>
   );
 };
