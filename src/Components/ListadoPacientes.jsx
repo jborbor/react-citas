@@ -1,9 +1,7 @@
 import React from "react";
 import Paciente from "./Paciente";
 
-const ListadoPacientes = ({ pacientes }) => {
-  console.log(pacientes);
-  console.log(pacientes.length);
+const ListadoPacientes = ({ pacientes, setPaciente, eliminarPaciente }) => {
 
   return (
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
@@ -17,7 +15,12 @@ const ListadoPacientes = ({ pacientes }) => {
           </p>
 
           {pacientes.map((paciente) => {
-            return <Paciente key={paciente.id} paciente={paciente} />;
+            return <Paciente
+              key={paciente.id}
+              paciente={paciente}
+              setPaciente={setPaciente}
+              eliminarPaciente={eliminarPaciente}
+            />;
           })}
         </>
       ) : (
