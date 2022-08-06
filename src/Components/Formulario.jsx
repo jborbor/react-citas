@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Error from "./Error";
+import alertify from "alertifyjs";
+alertify.set('notifier', 'position', 'top-right');
 
 const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
   const [nombre, setNombre] = useState("");
@@ -57,10 +59,14 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
       setPacientes(pacientesActualizados);
       setPaciente({});
 
+      alertify.notify('Registro editado correctamente..', 'custom');
+
     } else {
       //Nuevo registro
       objetoPaciente.id = generarId();
       setPacientes([...pacientes, objetoPaciente]);
+
+      alertify.success('Registro ingresado correctamente..');
 
     }
 
@@ -70,6 +76,7 @@ const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
     setEmail("");
     setFecha("");
     setSintomas("");
+
   };
 
   return (
